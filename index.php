@@ -111,6 +111,10 @@ foreach ($availabilityDomains as $availabilityDomainEntity) {
     if ($notifier->isSupported()) {
         $notifier->notify($message);
     }
+    $webhookurl = (string) getenv('WEBHOOK') ?: '';
+    if($webhookurl!='')
+		file_get_contents($webhookurl);
+    
 
     return;
 }
