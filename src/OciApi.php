@@ -44,13 +44,14 @@ class OciApi
     "metadata": {
         "ssh_authorized_keys": "$sshKey"
     },
+    "isPvEncryptionInTransitEnabled": true,
     "shape": "$shape",
     "compartmentId": "{$config->tenancyId}",
     "displayName": "$displayName",
     "availabilityDomain": "$availabilityDomain",
     "sourceDetails": {$config->getSourceDetails()},
     "createVnicDetails": {
-        "assignPublicIp": false,
+        "assignPublicIp": true,
         "subnetId": "{$config->subnetId}",
         "assignPrivateDnsRecord": true
     },

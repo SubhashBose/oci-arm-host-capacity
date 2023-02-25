@@ -97,6 +97,7 @@ class OciConfig
                 throw new BootVolumeSizeException('OCI_BOOT_VOLUME_SIZE_IN_GBS must be numeric');
             }
             $sourceDetails['bootVolumeSizeInGBs'] = $this->bootVolumeSizeInGBs;
+            $sourceDetails['bootVolumeVpusPerGB'] = 20;
         } elseif (!empty($this->bootVolumeId)) {
             if (!is_string($this->availabilityDomains) || empty($this->availabilityDomains)) {
                 throw new AvailabilityDomainRequiredException('OCI_AVAILABILITY_DOMAIN must be specified as string if using OCI_BOOT_VOLUME_ID');
