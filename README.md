@@ -1,4 +1,9 @@
-# Resolving Oracle Cloud "Out of Capacity" issue and getting free VPS with 4 ARM cores / 24GB of memory
+### Updated following config payload
+"bootVolumeVpusPerGB" : 20
+"isPvEncryptionInTransitEnabled": true
+"assignPublicIp": true
+
+# Resolving Oracle Cloud "Out of Capacity" issue
 
 <p align="center">
   <a href="https://github.com/hitrov/oci-arm-host-capacity/actions"><img src="https://github.com/hitrov/oci-arm-host-capacity/workflows/Tests/badge.svg" alt="Test"></a>
