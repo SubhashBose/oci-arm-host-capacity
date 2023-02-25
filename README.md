@@ -5,7 +5,7 @@
 
 "assignPublicIp": true
 
-### Other additins
+### Other additions
 Added run.sh to mnually start a loop with 1 min interval runs
 
 Added option to call WEBHOOK url success
