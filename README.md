@@ -5,6 +5,11 @@
 
 "assignPublicIp": true
 
+### Other additins
+Added run.sh to mnually start a loop with 1 min interval runs
+
+Added option to call WEBHOOK url success
+
 # Resolving Oracle Cloud "Out of Capacity" issue
 
 <p align="center">
