@@ -1,6 +1,8 @@
 ### Updated following config payload
 "bootVolumeVpusPerGB" : 20
+
 "isPvEncryptionInTransitEnabled": true
+
 "assignPublicIp": true
 
 # Resolving Oracle Cloud "Out of Capacity" issue
