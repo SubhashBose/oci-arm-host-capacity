@@ -81,6 +81,7 @@ if (!empty($config->availabilityDomains)) {
     $availabilityDomains = $api->getAvailabilityDomains($config);
 }
 
+
 foreach ($availabilityDomains as $availabilityDomainEntity) {
     $availabilityDomain = is_array($availabilityDomainEntity) ? $availabilityDomainEntity['name'] : $availabilityDomainEntity;
     try {
@@ -100,6 +101,10 @@ foreach ($availabilityDomains as $availabilityDomainEntity) {
             // trying next availability domain
             continue;
         }
+        
+		$webhookurl = (string) getenv('WEBHOOK_ERROR') ?: '';
+		if($webhookurl!='')
+			file_get_contents(str_replace('{MESSAGE}',urlencode($message),$webhookurl));
 
         // current config is broken
         return;
@@ -111,10 +116,10 @@ foreach ($availabilityDomains as $availabilityDomainEntity) {
     if ($notifier->isSupported()) {
         $notifier->notify($message);
     }
-    $webhookurl = (string) getenv('WEBHOOK') ?: '';
-    if($webhookurl!='')
-		file_get_contents($webhookurl);
     
-
+    $webhookurl = (string) getenv('WEBHOOK_SUCCESS') ?: '';
+    if($webhookurl!='')
+		file_get_contents(str_replace('{MESSAGE}',urlencode($message),$webhookurl));
+    
     return;
 }
