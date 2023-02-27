@@ -101,6 +101,13 @@ foreach ($availabilityDomains as $availabilityDomainEntity) {
             // trying next availability domain
             continue;
         }
+        if (
+            $e->getCode() === 429 &&
+            strpos($message, 'TooManyRequests') !== false
+        ) {
+            // Shall not try any more AD
+            return;
+        }
         
 		$webhookurl = (string) getenv('WEBHOOK_ERROR') ?: '';
 		if($webhookurl!='')
